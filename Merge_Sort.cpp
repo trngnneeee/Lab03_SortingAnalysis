@@ -50,6 +50,10 @@ void mergeSortComparision(int *arr, int first, int last, int &comparision){
         mergeComparision(arr, first, mid, last, comparision); // Merge the two halves
     }
 }
+void calMergeSortComparision(int *arr, int n, int &comparision){
+    comparision = 0;
+    mergeSortComparision(arr, 0, n - 1, comparision);
+}
 //calculate the time of merge sort
 
 void mergeTime(int *arr, int first, int mid, int last){
