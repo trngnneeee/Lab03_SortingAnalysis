@@ -3,7 +3,7 @@
 void flashSortComparison(int *arr, int n, int &count_comparison){
     count_comparison = 0;
     ++count_comparison;
-    int m = max(1, n / 10);
+    int m = 0.45 * n;
     int min = minElement(arr, n, count_comparison);
     int max = maxElement(arr, n, count_comparison);
 
@@ -54,7 +54,7 @@ void flashSortComparison(int *arr, int n, int &count_comparison){
 }
 
 void flashSort(int *arr, int n){
-    int m = max(1, n / 10);
+    int m = 0.45 * n;
     int min = *min_element(arr, arr + n);
     int max = *max_element(arr, arr + n);
 
