@@ -1,8 +1,9 @@
 #pragma once
 #include <iostream>
-#include <time.h>
+#include <chrono>
 
 using namespace std;
+using namespace chrono;
 
 void ShellSortRuntime(int* arr, int n);
 

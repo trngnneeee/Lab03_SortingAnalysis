@@ -23,5 +23,5 @@ void bubbleSortRuntime(int *arr, int n){
     }
     auto stop = high_resolution_clock::now(); //stop
     auto duration = duration_cast<milliseconds>(stop - start);
-    cout << "Time taken by function: " << duration.count() << " ms" << endl;
+    cout << "Running time: " << duration.count() << endl;
 }

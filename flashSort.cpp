@@ -108,7 +108,7 @@ void flashSortRuntime(int *arr, int n){
     flashSort(arr, n);
     auto stop = high_resolution_clock::now();
     auto duration = duration_cast<milliseconds>(stop - start);
-    cout << "Time taken by function: " << duration.count() << " ms" << endl;
+    cout << "Running time: " << duration.count() << endl;
 }
 
 int minElement(int *arr, int n, int &count_comparison){
