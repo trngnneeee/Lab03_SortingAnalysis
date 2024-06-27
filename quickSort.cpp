@@ -18,7 +18,7 @@ int partition1(int a[], int l, int r, int &numCmpLomuto){
   return j;
 }
 
-void quickSort1(int a[], int l, int r){
+void quickSort1(int a[], int l, int r, int &numCmpLomuto){
   if (++numCmpLomuto && l < r)
   {
     int p = partition1(a, l, r, numCmpLomuto);
