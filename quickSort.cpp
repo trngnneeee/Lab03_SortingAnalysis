@@ -2,7 +2,7 @@
 
 // int numCmpLomuto = 0;
 
-int partition1(int a[], int l, int r, int &numCmpLomuto){
+int partition1(int *a, int l, int r, int &numCmpLomuto){
   int x = a[r];
   int j = l - 1;
   for (int i = l; ++numCmpLomuto && i < r; i++)
@@ -18,7 +18,7 @@ int partition1(int a[], int l, int r, int &numCmpLomuto){
   return j;
 }
 
-void quickSort1(int a[], int l, int r, int &numCmpLomuto){
+void quickSort1(int *a, int l, int r, int &numCmpLomuto){
   if (++numCmpLomuto && l < r)
   {
     int p = partition1(a, l, r, numCmpLomuto);
@@ -27,7 +27,7 @@ void quickSort1(int a[], int l, int r, int &numCmpLomuto){
   }
 }
 
-int partitionRunTime(int a[], int l, int r)
+int partitionRunTime(int *a, int l, int r)
 {
   int x = a[r];
   int j = l - 1;
@@ -44,7 +44,7 @@ int partitionRunTime(int a[], int l, int r)
   return j;
 }
 
-void quickSortRunTime(int a[], int l, int r)
+void quickSortRunTime(int *a, int l, int r)
 {
   static bool isFirstCall = true; 
   auto start = high_resolution_clock::now();
