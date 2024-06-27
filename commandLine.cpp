@@ -117,6 +117,7 @@ int main(int argc, char *argv[])
                 cout << "Input file: " << argv[3] << endl;
                 num = readFile(n, argv[3]);
                 cout << "Input size: " << n << endl;
+                runSort(num, n, argv[2], argv[4]);
             }
         }
     }
@@ -156,5 +157,157 @@ void runSort(int *arr, int n, char *algorithm, char *mode){
             cout << "Comparisions: " << count_comparison << endl;
         }
     }
-
+    else if(strcmp(algorithm, "counting-sort") == 0){
+        if(strcmp(mode, "-time") == 0)
+            countingSortRuntime(arr, n);
+        else if(strcmp(mode, "-comp") == 0){
+            int count_comparison;
+            countingSort(arr, n, count_comparison);
+            cout << "Comparisions: " << count_comparison << endl;
+        }
+        else if(strcmp(mode, "-both") == 0){
+            countingSortRuntime(arr, n);
+            int count_comparison;
+            countingSort(arr, n, count_comparison);
+            cout << "Comparisions: " << count_comparison << endl;
+        }
+    }
+    else if(strcmp(algorithm, "flash-sort") == 0){
+        if(strcmp(mode, "-time") == 0)
+            flashSortRuntime(arr, n);
+        else if(strcmp(mode, "-comp") == 0){
+            int count_comparison;
+            flashSortComparison(arr, n, count_comparison);
+            cout << "Comparisions: " << count_comparison << endl;
+        }
+        else if(strcmp(mode, "-both") == 0){
+            flashSortRuntime(arr, n);
+            int count_comparison;
+            flashSortComparison(arr, n, count_comparison);
+            cout << "Comparisions: " << count_comparison << endl;
+        }
+    }
+    else if(strcmp(algorithm, "heap-sort") == 0){
+        if(strcmp(mode, "-time") == 0)
+            heapSortRuntime(arr, n);
+        else if(strcmp(mode, "-comp") == 0){
+            int count_comparison;
+            heapSortComparison(arr, n, count_comparison);
+            cout << "Comparisions: " << count_comparison << endl;
+        }
+        else if(strcmp(mode, "-both") == 0){
+            heapSortRuntime(arr, n);
+            int count_comparison;
+            heapSortComparison(arr, n, count_comparison);
+            cout << "Comparisions: " << count_comparison << endl;
+        }
+    }
+    else if(strcmp(algorithm, "insertion-sort") == 0){
+        if(strcmp(mode, "-time") == 0)
+            insertionSortRuntime(arr, n);
+        else if(strcmp(mode, "-comp") == 0){
+            int count_comparison;
+            insertionSort(arr, n, count_comparison);
+            cout << "Comparisions: " << count_comparison << endl;
+        }
+        else if(strcmp(mode, "-both") == 0){
+            insertionSortRuntime(arr, n);
+            int count_comparison;
+            insertionSort(arr, n, count_comparison);
+            cout << "Comparisions: " << count_comparison << endl;
+        }
+    }
+    else if(strcmp(algorithm, "merge-sort") == 0){
+        if(strcmp(mode, "-time") == 0)
+            mergeSortRuntime(arr, n);
+        else if(strcmp(mode, "-comp") == 0){
+            int count_comparison;
+            calComparisionMergeSort(arr, n, count_comparison);
+            cout << "Comparisions: " << count_comparison << endl;
+        }
+        else if(strcmp(mode, "-both") == 0){
+            mergeSortRuntime(arr, n);
+            int count_comparison;
+            calComparisionMergeSort(arr, n, count_comparison);
+            cout << "Comparisions: " << count_comparison << endl;
+        }
+    }
+    // else if(strcmp(algorithm, "quick-sort") == 0){
+    //     if(strcmp(mode, "-time") == 0)
+    //         quickSortRuntime(arr, n);
+    //     else if(strcmp(mode, "-comp") == 0){
+    //         int count_comparison;
+    //         quickSort(arr, n, count_comparison);
+    //         cout << "Comparisions: " << count_comparison << endl;
+    //     }
+    //     else if(strcmp(mode, "-both") == 0){
+    //         quickSortRuntime(arr, n);
+    //         int count_comparison;
+    //         quickSort(arr, n, count_comparison);
+    //         cout << "Comparisions: " << count_comparison << endl;
+    //     }
+    // }
+    else if(strcmp(algorithm, "radix-sort") == 0){
+        if(strcmp(mode, "-time") == 0)
+            RadixSortRuntime(arr, n);
+        else if(strcmp(mode, "-comp") == 0){
+            int count_comparison;
+            Com_RadixSort(arr, n, count_comparison);
+            cout << "Comparisions: " << count_comparison << endl;
+        }
+        else if(strcmp(mode, "-both") == 0){
+            RadixSortRuntime(arr, n);
+            int count_comparison;
+            Com_RadixSort(arr, n, count_comparison);
+            cout << "Comparisions: " << count_comparison << endl;
+        }
+    }
+    else if(strcmp(algorithm, "selection-sort") == 0){
+        if(strcmp(mode, "-time") == 0)
+            calTimeSelectionSort(arr, n);
+        else if(strcmp(mode, "-comp") == 0){
+            int count_comparison;
+            selecionSortComparision(arr, n, count_comparison);
+            cout << "Comparisions: " << count_comparison << endl;
+        }
+        else if(strcmp(mode, "-both") == 0){
+            calTimeSelectionSort(arr, n);
+            int count_comparison;
+            selecionSortComparision(arr, n, count_comparison);
+            cout << "Comparisions: " << count_comparison << endl;
+        }
+    }
+    else if(strcmp(algorithm, "shaker-sort") == 0){
+        if(strcmp(mode, "-time") == 0)
+            calTimeShakerSort(arr, n);
+        else if(strcmp(mode, "-comp") == 0){
+            int count_comparison;
+            shakerSortComparision(arr, n, count_comparison);
+            cout << "Comparisions: " << count_comparison << endl;
+        }
+        else if(strcmp(mode, "-both") == 0){
+            calTimeShakerSort(arr, n);
+            int count_comparison;
+            shakerSortComparision(arr, n, count_comparison);
+            cout << "Comparisions: " << count_comparison << endl;
+        }
+    }
+    else if(strcmp(algorithm, "shell-sort") == 0){
+        if(strcmp(mode, "-time") == 0)
+            ShellSortRuntime(arr, n);
+        else if(strcmp(mode, "-comp") == 0){
+            int count_comparison;
+            Com_ShellSort(arr, n, count_comparison);
+            cout << "Comparisions: " << count_comparison << endl;
+        }
+        else if(strcmp(mode, "-both") == 0){
+            ShellSortRuntime(arr, n);
+            int count_comparison;
+            Com_ShellSort(arr, n, count_comparison);
+            cout << "Comparisions: " << count_comparison << endl;
+        }
+    }
+    else{
+        cout << "Algorithm not found!" << endl;
+    }
 }
