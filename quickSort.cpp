@@ -1,8 +1,8 @@
 #include "quickSort.h"
 
-int numCmpLomuto = 0;
+// int numCmpLomuto = 0;
 
-int partition1(int a[], int l, int r){
+int partition1(int a[], int l, int r, int &numCmpLomuto){
   int x = a[r];
   int j = l - 1;
   for (int i = l; ++numCmpLomuto && i < r; i++)
@@ -18,12 +18,13 @@ int partition1(int a[], int l, int r){
   return j;
 }
 
-void quickSort1(int a[], int l, int r){
+void quickSort1(int a[], int l, int r, int &numCmpLomuto){
+  numCmpLomuto = 0;
   if (++numCmpLomuto && l < r)
   {
-    int p = partition1(a, l, r);
-    quickSort1(a, l, p - 1);
-    quickSort1(a, p + 1, r);
+    int p = partition1(a, l, r, numCmpLomuto);
+    quickSort1(a, l, p - 1, numCmpLomuto);
+    quickSort1(a, p + 1, r, numCmpLomuto);
   }
 }
 
