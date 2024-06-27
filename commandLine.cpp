@@ -93,6 +93,7 @@ void GenerateData(int a[], int n, int dataType)
 
 int *readFile(int &n, char *filename);
 void runSort(int *arr, int n, char *algorithm, char *mode);
+void writeFile(int *arr, int n, string filename);
 
 int main(int argc, char *argv[])
 {
@@ -113,39 +114,82 @@ int main(int argc, char *argv[])
             }
             int n;
             int *num;
+            // command 1
             if(!isNumeric){
                 cout << "Input file: " << argv[3] << endl;
                 num = readFile(n, argv[3]);
                 cout << "Input size: " << n << endl;
                 runSort(num, n, argv[2], argv[4]);
-            } else if(isNumeric){
+                writeFile(num, n, "output.txt");
+            } 
+            //Command 3
+            else if(isNumeric){
                 n = atoi(argv[3]);
                 num = new int[n];
 
                 cout << "Input order: Randomize\n";
                 cout << "--------------------------";
                 GenerateRandomData(num, n);
+                writeFile(num, n, "input1.txt");
                 runSort(num, n, argv[2], argv[4]);
 
                 cout << "Input order: Nearly Sorted\n";
                 cout << "----------------------------";
                 GenerateNearlySortedData(num, n);
+                writeFile(num, n, "input2.txt");
                 runSort(num, n, argv[2], argv[4]);
 
                 cout << "Input order: Sorted\n";
                 cout << "----------------------------";
                 GenerateSortedData(num, n);
+                writeFile(num, n, "input3.txt");
                 runSort(num, n, argv[2], argv[4]);
 
                 cout << "Input order: Reverse\n";
                 cout << "----------------------------";
                 GenerateReverseData(num, n);
+                writeFile(num, n, "input4.txt");
                 runSort(num, n, argv[2], argv[4]);
 
             }
         }
     } else if(argc == 6){
-        if(argv[1] == "-a")
+        //Prototype: [Execution file] -a [Algorithm] [Input size] [Input order] [Output parameter(s)]
+        if(argv[1] == "-a"){
+            cout << "ALGORITHM MODE" << endl;
+            cout << "Algorithm: " << argv[2] << endl;
+            int n = atoi(argv[3]);
+            int *num = new int[n];
+            if(strcmp(argv[4], "-rand") == 0){
+                cout << "Input order: randomize data\n";
+                cout << "--------------------------";
+                GenerateRandomData(num, n);
+                writeFile(num, n, "input.txt");
+                runSort(num, n, argv[2], argv[5]);
+                writeFile(num, n, "output.txt");
+            } else if(strcmp(argv[4], "-nsorted") == 0){
+                cout << "Input order: nearly sorted data\n";
+                cout << "----------------------------";
+                GenerateNearlySortedData(num, n);
+                writeFile(num, n, "input.txt");
+                runSort(num, n, argv[2], argv[5]);
+                writeFile(num, n, "output.txt")
+            } else if(strcmp(argv[4], "-sorted") == 0){
+                cout << "Input order: sorted data\n";
+                cout << "----------------------------";
+                GenerateSortedData(num, n);
+                writeFile(num, n, "input.txt");
+                runSort(num, n, argv[2], argv[5]);
+                writeFile(num, n, "output.txt");
+            } else if(strcmp(argv[4], "-rev") == 0){
+                cout << "Input order: reverse sorted data\n";
+                cout << "----------------------------";
+                GenerateReverseData(num, n);
+                writeFile(num, n, "input.txt");
+                runSort(num, n, argv[2], argv[5]);
+                writeFile(num, n, "output.txt");
+            }
+        }
     }
     return 0;
 }
@@ -336,4 +380,15 @@ void runSort(int *arr, int n, char *algorithm, char *mode){
     else{
         cout << "Algorithm not found!" << endl;
     }
+}
+
+void writeFile(int *arr, int n, string filename){
+    ofstream fout(filename);
+    fout << n << endl;
+    for(int i = 0; i < n; i++){
+        fout << arr[i] << " ";
+    }
+    fout << endl;
+
+    fout.close();
 }
