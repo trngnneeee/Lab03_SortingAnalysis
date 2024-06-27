@@ -10,4 +10,4 @@ using namespace chrono;
 void shakerSortComparision(int *arr, int n, int &comparision);
 
 void shakerSortTime(int *arr, int n);
-void calTimeShakerSort(int *arr, int n);
+double calTimeShakerSort(int *arr, int n);

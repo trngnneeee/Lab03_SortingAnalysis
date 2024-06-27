@@ -9,4 +9,4 @@ using namespace chrono;
 
 void selecionSortComparision(int *arr, int n, int &comparision);
 void selecionSortTime(int *arr, int n);
-void calTimeSelectionSort(int *arr, int n);
+double calTimeSelectionSort(int *arr, int n);

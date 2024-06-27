@@ -49,7 +49,7 @@ int partitionRunTime(int *a, int l, int r)
     return j;
 }
 
-void quickSortRunTime(int *a, int l, int r)
+double quickSortRunTime(int *a, int l, int r)
 {
     static bool isFirstCall = true;
     auto start = high_resolution_clock::now();
@@ -64,8 +64,9 @@ void quickSortRunTime(int *a, int l, int r)
     if (isFirstCall)
     {
         auto stop = high_resolution_clock::now();
-        auto duration = duration_cast<milliseconds>(stop - start);
-        cout << "Running time: " << duration.count() << endl;
+        auto duration = duration_cast<milliseconds>(stop - start);      
         isFirstCall = false;
+        return (double)duration.count();
     }
+    return 0;
 }

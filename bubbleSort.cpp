@@ -12,7 +12,7 @@ void bubbleSort(int *arr, int n, int &count_comparison){
     }
 }
 
-void bubbleSortRuntime(int *arr, int n){
+double bubbleSortRuntime(int *arr, int n){
     auto start = high_resolution_clock::now(); //start 
     for(int i = 0; i < n - 1; i++){
         for(int j = 0; j < n - i - 1; j++){
@@ -23,5 +23,5 @@ void bubbleSortRuntime(int *arr, int n){
     }
     auto stop = high_resolution_clock::now(); //stop
     auto duration = duration_cast<milliseconds>(stop - start);
-    cout << "Running time: " << duration.count() << endl;
+    return (double)duration.count();
 }

@@ -10,4 +10,4 @@ void quickSort1(int *a, int l, int r, int &numCmpLomuto);
 void calQuickSort(int *a, int n, int &numCmp);
 
 int partitionRunTime(int *a, int l, int r);
-void quickSortRunTime(int *a, int l, int r);
+double quickSortRunTime(int *a, int l, int r);

@@ -1,6 +1,6 @@
 #include "RadixSort.h"
 
-void RadixSortRuntime(int* arr, int n)
+double RadixSortRuntime(int* arr, int n)
 {
     auto start = high_resolution_clock::now(); //start
     int max = arr[0];
@@ -60,7 +60,7 @@ void RadixSortRuntime(int* arr, int n)
 
     auto stop = high_resolution_clock::now(); //stop
     auto duration = duration_cast<milliseconds>(stop - start);
-    cout << "Running time: " << duration.count() << endl;
+    return  (double) duration.count();
 }
 void Com_RadixSort(int* arr, int n, int& cnt_com)
 {
@@ -122,6 +122,4 @@ void Com_RadixSort(int* arr, int n, int& cnt_com)
     {
         delete[] tmpArr[i];
     }
-
-    cout << "Number of comparisons: " << cnt_com << endl;
 }
