@@ -96,7 +96,7 @@ void runSort(int *arr, int n, char *algorithm, char *mode);
 
 int main(int argc, char *argv[])
 {
-    if (argc == 4)
+    if (argc == 5)
     {
         if (strcmp(argv[1], "-a") == 0)
         {
@@ -118,8 +118,34 @@ int main(int argc, char *argv[])
                 num = readFile(n, argv[3]);
                 cout << "Input size: " << n << endl;
                 runSort(num, n, argv[2], argv[4]);
+            } else if(isNumeric){
+                n = atoi(argv[3]);
+                num = new int[n];
+
+                cout << "Input order: Randomize\n";
+                cout << "--------------------------";
+                GenerateRandomData(num, n);
+                runSort(num, n, argv[2], argv[4]);
+
+                cout << "Input order: Nearly Sorted\n";
+                cout << "----------------------------";
+                GenerateNearlySortedData(num, n);
+                runSort(num, n, argv[2], argv[4]);
+
+                cout << "Input order: Sorted\n";
+                cout << "----------------------------";
+                GenerateSortedData(num, n);
+                runSort(num, n, argv[2], argv[4]);
+
+                cout << "Input order: Reverse\n";
+                cout << "----------------------------";
+                GenerateReverseData(num, n);
+                runSort(num, n, argv[2], argv[4]);
+
             }
         }
+    } else if(argc == 6){
+        if(argv[1] == "-a")
     }
     return 0;
 }
@@ -232,21 +258,21 @@ void runSort(int *arr, int n, char *algorithm, char *mode){
             cout << "Comparisions: " << count_comparison << endl;
         }
     }
-    // else if(strcmp(algorithm, "quick-sort") == 0){
-    //     if(strcmp(mode, "-time") == 0)
-    //         quickSortRuntime(arr, n);
-    //     else if(strcmp(mode, "-comp") == 0){
-    //         int count_comparison;
-    //         quickSort(arr, n, count_comparison);
-    //         cout << "Comparisions: " << count_comparison << endl;
-    //     }
-    //     else if(strcmp(mode, "-both") == 0){
-    //         quickSortRuntime(arr, n);
-    //         int count_comparison;
-    //         quickSort(arr, n, count_comparison);
-    //         cout << "Comparisions: " << count_comparison << endl;
-    //     }
-    // }
+    else if(strcmp(algorithm, "quick-sort") == 0){
+        if(strcmp(mode, "-time") == 0)
+            quickSortRunTime(arr, 0, n - 1);
+        else if(strcmp(mode, "-comp") == 0){
+            int count_comparison;
+            calQuickSort(arr, n, count_comparison);
+            cout << "Comparisions: " << count_comparison << endl;
+        }
+        else if(strcmp(mode, "-both") == 0){
+            quickSortRunTime(arr, 0, n - 1);
+            int count_comparison;
+            calQuickSort(arr, n, count_comparison);
+            cout << "Comparisions: " << count_comparison << endl;
+        }
+    }
     else if(strcmp(algorithm, "radix-sort") == 0){
         if(strcmp(mode, "-time") == 0)
             RadixSortRuntime(arr, n);
