@@ -143,9 +143,19 @@ int main(int argc, char *argv[])
                 runSort(num, n, argv[2], argv[4]);
 
             }
-        }
+        }else if(strcmp(argv[1], "-c") == 0){
+            cout << "COMPARE NODE\n";
+            cout << "Algorithm: " << argv[3] << " | " << argv[4] <<"\n";
+            cout << "Input file: " << argv[5] <<"\n";
+            int n = 0;
+            int *num = readFile(n, argv[5]);
+            cout << "Input size: " << n <<"\n";
+            cout << "-------------------------------";
+            
+            
+        }else cout <<"Not Found!\n";
     } else if(argc == 6){
-        if(argv[1] == "-a")
+        if(argv[1] == "-a");
     }
     return 0;
 }
