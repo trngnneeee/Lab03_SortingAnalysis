@@ -3,7 +3,7 @@
 void flashSortComparison(int *arr, int n, int &count_comparison){
     count_comparison = 0;
     ++count_comparison;
-    int m = max(1, n / 10);
+    int m = 0.45 * n;
     int min = minElement(arr, n, count_comparison);
     int max = maxElement(arr, n, count_comparison);
 
@@ -54,7 +54,7 @@ void flashSortComparison(int *arr, int n, int &count_comparison){
 }
 
 void flashSort(int *arr, int n){
-    int m = max(1, n / 10);
+    int m = 0.45 * n;
     int min = *min_element(arr, arr + n);
     int max = *max_element(arr, arr + n);
 
@@ -108,7 +108,7 @@ void flashSortRuntime(int *arr, int n){
     flashSort(arr, n);
     auto stop = high_resolution_clock::now();
     auto duration = duration_cast<milliseconds>(stop - start);
-    cout << "Time taken by function: " << duration.count() << " ms" << endl;
+    cout << "Running time: " << duration.count() << endl;
 }
 
 int minElement(int *arr, int n, int &count_comparison){

@@ -1,10 +1,4 @@
 #include"Selection_Sort.h"
-#include<iostream>
-#include<string>
-#include<math.h>
-#include<time.h>
-using namespace std;
-// calculate the comparision of selection sort
 
 void selecionSortComparision(int *arr, int n, int &comparision){
     comparision = 0;
@@ -31,9 +25,10 @@ void selecionSortTime(int *arr, int n){
     }
 }
 void calTimeSelectionSort(int *arr, int n){
-    clock_t begin = clock(); 
+    auto start = high_resolution_clock::now(); //start 
     selecionSortTime(arr, n);
 
-    clock_t end = clock(); 
-    cout<<"Time run: "<<(float)(end-begin)/CLOCKS_PER_SEC<<" s"<<endl;
+    auto stop = high_resolution_clock::now(); //stop
+    auto duration = duration_cast<milliseconds>(stop - start);
+    cout << "Running time: " << duration.count() << endl;
 }

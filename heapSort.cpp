@@ -44,7 +44,7 @@ void heapSortRuntime(int *arr, int n){
     heapSort(arr, n);
     auto stop = high_resolution_clock::now();
     auto duration = duration_cast<milliseconds>(stop - start);
-    cout << "Time taken by function: " << (double)duration.count() << " ms" << endl;
+    cout << "Running time: " << (double)duration.count() << endl;
 }
 
 void heapRebuild(int start, int *arr, int n){

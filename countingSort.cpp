@@ -3,7 +3,7 @@
 void countingSort(int *arr, int n, int &numCmp){
     numCmp = 0;
 
-    int maxVal = *max_element(arr, arr + n);
+    int maxVal = maxElement(arr, n, numCmp);
     numCmp += n;
 
     int* count = new int[maxVal + 1]();
@@ -56,5 +56,15 @@ void countingSortRuntime(int *arr, int n){
 
     auto stop = high_resolution_clock::now(); 
     auto duration = duration_cast<milliseconds>(stop - start);
-    cout << "Time taken by function: " << duration.count() << " ms" << endl;
+    cout << "Running time: " << duration.count() << endl;
+}
+
+int maxElement(int *arr, int n, int &count_comparison){
+    int max = arr[0];
+    for(int i = 1; ++count_comparison && i < n; i++){
+        if(arr[i] > max){
+            max = arr[i];
+        }
+    }
+    return max;
 }

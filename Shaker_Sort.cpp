@@ -1,10 +1,4 @@
-//Shared Sort function
-#include<iostream>
-#include<string>
-#include<math.h>
-#include<time.h>
 #include"Shaker_Sort.h"
-using namespace std;
 
 void shakerSortComparision(int *arr, int n, int &comparision){
     int left = 1, right = n-1, k = n-1;
@@ -48,9 +42,10 @@ void shakerSortTime(int *arr, int n){
     
 }
 void calTimeShakerSort(int *arr, int n){
-    clock_t begin = clock(); 
+    auto start = high_resolution_clock::now(); //start
     shakerSortTime(arr, n);
 
-    clock_t end = clock(); 
-    cout<<"Time run: "<<(float)(end-begin)/CLOCKS_PER_SEC<<" s"<<endl;
+    auto stop = high_resolution_clock::now(); //stop
+    auto duration = duration_cast<milliseconds>(stop - start);
+    cout << "Running time: " << duration.count() << endl;
 }

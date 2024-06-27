@@ -2,7 +2,7 @@
 
 void RadixSortRuntime(int* arr, int n)
 {
-    clock_t begin_radix = clock(); // start
+    auto start = high_resolution_clock::now(); //start
     int max = arr[0];
 
     for (int i = 1; i < n; i++)
@@ -58,8 +58,9 @@ void RadixSortRuntime(int* arr, int n)
         delete[] tmpArr[i];
     }
 
-    clock_t end_radix = clock(); // end
-    cout << "Time run: " << (float)(end_radix - begin_radix) / CLOCKS_PER_SEC << " s" << endl;
+    auto stop = high_resolution_clock::now(); //stop
+    auto duration = duration_cast<milliseconds>(stop - start);
+    cout << "Running time: " << duration.count() << endl;
 }
 void Com_RadixSort(int* arr, int n, int& cnt_com)
 {
