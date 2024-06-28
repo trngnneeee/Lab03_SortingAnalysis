@@ -3,7 +3,7 @@
 void countingSort(int *arr, int n, int &numCmp){
     numCmp = 0;
 
-    int maxVal = maxElement(arr, n, numCmp);
+    int maxVal = maxElement1(arr, n, numCmp);
     numCmp += n;
 
     int* count = new int[maxVal + 1]();
@@ -59,12 +59,12 @@ double countingSortRuntime(int *arr, int n){
     return (double)duration.count();
 }
 
-// int maxElement(int *arr, int n, int &count_comparison){
-//     int max = arr[0];
-//     for(int i = 1; ++count_comparison && i < n; i++){
-//         if(arr[i] > max){
-//             max = arr[i];
-//         }
-//     }
-//     return max;
-// }
+int maxElement1(int *arr, int n, int &count_comparison){
+    int max = arr[0];
+    for(int i = 1; ++count_comparison && i < n; i++){
+        if(arr[i] > max){
+            max = arr[i];
+        }
+    }
+    return max;
+}
