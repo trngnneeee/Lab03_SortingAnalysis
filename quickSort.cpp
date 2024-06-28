@@ -1,59 +1,31 @@
 #include "quickSort.h"
 
-// int numCmpLomuto = 0;
-
-int partition1(int *a, int l, int r, int &numCmpLomuto){
-  int x = a[r];
-  int j = l - 1;
-  for (int i = l; ++numCmpLomuto && i < r; i++)
-  {
-    if (++numCmpLomuto && a[i] <= x)
-    {
-      j++;
-      swap(a[i], a[j]);
-    }
-  }
-  j++;
-  swap(a[j], a[r]);
-  return j;
-}
-
-void quickSort1(int *a, int l, int r, int &numCmpLomuto){
-  if (++numCmpLomuto && l < r)
-  {
-    int p = partition1(a, l, r, numCmpLomuto);
-    quickSort1(a, l, p - 1, numCmpLomuto);
-    quickSort1(a, p + 1, r, numCmpLomuto);
-  }
-}
-
-int partitionRunTime(int *a, int l, int r)
+int partitionRunTime(int *arr,int low,int high)
 {
-  int x = a[r];
-  int j = l - 1;
-  for (int i = l; i < r; i++)
+  int pivot=arr[high];
+  int i=(low-1); 
+  for(int j=low;j<=high-1;j++)
   {
-    if (a[i] <= x)
+    if(arr[j]<pivot)
     {
-      j++;
-      swap(a[i], a[j]);
+      i++;
+      swap(arr[i],arr[j]);
     }
   }
-  j++;
-  swap(a[j], a[r]);
-  return j;
+  swap(arr[i+1],arr[high]);
+  return (i+1);
 }
 
-void quickSortRunTime(int *a, int l, int r)
+void quickSortRunTime(int *arr,int low,int high)
 {
   static bool isFirstCall = true; 
   auto start = high_resolution_clock::now();
-
-  if (l < r)
-  {
-    int p = partitionRunTime(a, l, r);
-    quickSortRunTime(a, l, p - 1);
-    quickSortRunTime(a, p + 1, r);
+  
+  if(low<high)
+  {    
+    int pi=partitionRunTime(arr,low,high);
+    quickSortRunTime(arr,low,pi-1);
+    quickSortRunTime(arr,pi+1,high);
   }
 
   if (isFirstCall)
@@ -62,5 +34,31 @@ void quickSortRunTime(int *a, int l, int r)
     auto duration = duration_cast<milliseconds>(stop - start);
     cout << "Running time: " << duration.count() << endl;
     isFirstCall = false;
+  }
+}
+
+int partition(int *arr,int low,int high, int &numCmp)
+{
+  int pivot=arr[high];
+  int i=(low-1); 
+  for(int j=low; ++numCmp && j<=high-1;j++)
+  {
+    if(++numCmp && arr[j]<pivot)
+    {
+      i++;
+      swap(arr[i],arr[j]);
+    }
+  }
+  swap(arr[i+1],arr[high]);
+  return (i+1);
+}
+
+void quickSort(int *arr,int low,int high, int &numCmp)
+{
+  if(low<high)
+  {    
+    int pi=partition(arr,low,high, numCmp);
+    quickSort(arr,low,pi-1, numCmp);
+    quickSort(arr,pi+1,high, numCmp);
   }
 }
