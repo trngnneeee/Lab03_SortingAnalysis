@@ -1,5 +1,25 @@
 #include "flashSort.h"
 
+int minElement(int *arr, int n, int &count_comparison){
+    int min = arr[0];
+    for(int i = 1; ++count_comparison && i < n; i++){
+        if(arr[i] < min){
+            min = arr[i];
+        }
+    }
+    return min;
+}
+
+int maxElement(int *arr, int n, int &count_comparison){
+    int max = arr[0];
+    for(int i = 1; ++count_comparison && i < n; i++){
+        if(arr[i] > max){
+            max = arr[i];
+        }
+    }
+    return max;
+}
+
 void flashSortComparison(int *arr, int n, int &count_comparison){
     count_comparison = 0;
     ++count_comparison;
@@ -109,24 +129,4 @@ void flashSortRuntime(int *arr, int n){
     auto stop = high_resolution_clock::now();
     auto duration = duration_cast<milliseconds>(stop - start);
     cout << "Running time: " << duration.count() << endl;
-}
-
-int minElement(int *arr, int n, int &count_comparison){
-    int min = arr[0];
-    for(int i = 1; ++count_comparison && i < n; i++){
-        if(arr[i] < min){
-            min = arr[i];
-        }
-    }
-    return min;
-}
-
-int maxElement(int *arr, int n, int &count_comparison){
-    int max = arr[0];
-    for(int i = 1; ++count_comparison && i < n; i++){
-        if(arr[i] > max){
-            max = arr[i];
-        }
-    }
-    return max;
 }
