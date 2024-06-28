@@ -1,6 +1,6 @@
 #include "ShellSort.h"
 
-void ShellSortRuntime(int* arr, int n)
+double ShellSortRuntime(int* arr, int n)
 {
     auto start = high_resolution_clock::now();
     for (int gap = n / 2; gap > 0; gap /= 2)
@@ -20,7 +20,7 @@ void ShellSortRuntime(int* arr, int n)
 
     auto stop = high_resolution_clock::now();
     auto duration = duration_cast<milliseconds>(stop - start);
-    cout << "Running time: " << duration.count() << endl;
+    return (double)duration.count();
 }
 void Com_ShellSort(int* arr, int n, int& cnt_com)
 {

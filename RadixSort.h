@@ -8,7 +8,7 @@
 using namespace std;
 using namespace chrono;
 
-void RadixSortRuntime(int* arr, int n);
+double RadixSortRuntime(int* arr, int n);
 
 void Com_RadixSort(int* arr, int n, int& cnt_com);
 

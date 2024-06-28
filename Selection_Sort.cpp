@@ -24,11 +24,11 @@ void selecionSortTime(int *arr, int n){
         swap(arr[i], arr[minIndex]);
     }
 }
-void calTimeSelectionSort(int *arr, int n){
+double calTimeSelectionSort(int *arr, int n){
     auto start = high_resolution_clock::now(); //start 
     selecionSortTime(arr, n);
 
     auto stop = high_resolution_clock::now(); //stop
     auto duration = duration_cast<milliseconds>(stop - start);
-    cout << "Running time: " << duration.count() << endl;
+    return (double)duration.count();
 }

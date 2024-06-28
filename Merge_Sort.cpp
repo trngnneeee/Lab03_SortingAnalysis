@@ -110,12 +110,12 @@ void mergeSortTime(int *arr, int first, int last)
     }
 }
 
-void mergeSortRuntime(int *arr, int n)
+double mergeSortRuntime(int *arr, int n)
 {
     auto start = high_resolution_clock::now();
     mergeSortTime(arr, 0, n - 1);
 
     auto stop = high_resolution_clock::now();
     auto duration = duration_cast<milliseconds>(stop - start);
-    cout << "Running time: " << duration.count() << endl;
+    return (double)duration.count();
 }

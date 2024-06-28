@@ -39,12 +39,12 @@ void heapSortComparison(int *arr, int n, int &count_comparison){
     }
 }
 
-void heapSortRuntime(int *arr, int n){
+double heapSortRuntime(int *arr, int n){
     auto start = high_resolution_clock::now();
     heapSort(arr, n);
     auto stop = high_resolution_clock::now();
     auto duration = duration_cast<milliseconds>(stop - start);
-    cout << "Running time: " << (double)duration.count() << endl;
+    return (double)duration.count();
 }
 
 void heapRebuild(int start, int *arr, int n){

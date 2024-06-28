@@ -13,7 +13,7 @@ void insertionSort(int* a, int n, int &numCmp) {
     }
 }
 
-void insertionSortRuntime(int* a, int n) {
+double insertionSortRuntime(int* a, int n) {
     auto start = high_resolution_clock::now();
     for (int i = 1; i < n; i++) {
         int key = a[i];
@@ -26,5 +26,5 @@ void insertionSortRuntime(int* a, int n) {
     }
     auto stop = high_resolution_clock::now();
     auto duration = duration_cast<milliseconds>(stop - start);
-    cout << "Running time: " << duration.count() << endl;
+    return (double)duration.count();
 }

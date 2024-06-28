@@ -41,11 +41,11 @@ void shakerSortTime(int *arr, int n){
     }while (left <= right);
     
 }
-void calTimeShakerSort(int *arr, int n){
+double calTimeShakerSort(int *arr, int n){
     auto start = high_resolution_clock::now(); //start
     shakerSortTime(arr, n);
 
     auto stop = high_resolution_clock::now(); //stop
     auto duration = duration_cast<milliseconds>(stop - start);
-    cout << "Running time: " << duration.count() << endl;
+    return (double)duration.count();
 }

@@ -7,4 +7,4 @@ using namespace std;
 using namespace chrono;
 
 void bubbleSort(int *arr, int n, int &count_comparison);
-void bubbleSortRuntime(int *arr, int n);
+double bubbleSortRuntime(int *arr, int n);
