@@ -25,6 +25,14 @@ void quickSortRunTime(int* arr, int low, int high) {
   }
 }
 
+double calQuickSortRunTime(int *arr, int n){
+  auto start = high_resolution_clock::now();
+  quickSortRunTime(arr, 0, n - 1);
+  auto stop = high_resolution_clock::now();
+  auto duration = duration_cast<milliseconds>(stop - start);
+  return (double)duration.count();
+}
+
 int partition(int *arr,int low,int high, int &numCmp)
 {  
   int pivot=arr[high];
@@ -50,14 +58,10 @@ void quickSort(int* arr, int low, int high, int &numCmp) {
   }
 }
 
+
 int main(){
   int n = 6;
   int* a = new int[n]{12, 11, 13, 5, 6, 7};
-  // auto start = high_resolution_clock::now();
-  // quickSortRunTime(a, 0, n - 1);
-  // auto stop = high_resolution_clock::now();
-  // auto duration = duration_cast<milliseconds>(stop - start);
-  // cout << "Quick Sort Runtime: " << (double)duration.count() << " milliseconds" << endl;
 
   int numCmp = 0;
   quickSort(a, 0, n - 1, numCmp);
