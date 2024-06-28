@@ -1,6 +1,6 @@
 #include"Selection_Sort.h"
 
-void selecionSortComparision(int *arr, int n, int &comparision){
+void selecionSortComparision(int *arr, int n, long long &comparision){
     comparision = 0;
     for(int i = 0; ++comparision && i < n - 1 ; i++){
         int minIndex = i;

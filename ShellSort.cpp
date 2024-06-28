@@ -22,7 +22,7 @@ double ShellSortRuntime(int* arr, int n)
     auto duration = duration_cast<milliseconds>(stop - start);
     return (double)duration.count();
 }
-void Com_ShellSort(int* arr, int n, int& cnt_com)
+void Com_ShellSort(int* arr, int n, long long& cnt_com)
 {
     cnt_com = 0;
     for (int gap = n / 2; ++cnt_com && gap > 0; gap /= 2)

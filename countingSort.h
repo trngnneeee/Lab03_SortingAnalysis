@@ -6,7 +6,7 @@
 using namespace std;
 using namespace chrono;
 
-void countingSort(int *arr, int n, int &numCmp);
-double countingSortRuntime(int *arr, int n);
+void countingSort(int* arr, int n, long long& numCmp);
+double countingSortRuntime(int* arr, int n);
 //int maxElement(int *arr, int n, int &count_comparison);
-int maxElement1(int *arr, int n, int &count_comparison);
+int maxElement1(int* arr, int n, long long& count_comparison);

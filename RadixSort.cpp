@@ -62,7 +62,7 @@ double RadixSortRuntime(int* arr, int n)
     auto duration = duration_cast<milliseconds>(stop - start);
     return  (double) duration.count();
 }
-void Com_RadixSort(int* arr, int n, int& cnt_com)
+void Com_RadixSort(int* arr, int n, long long& cnt_com)
 {
     
     cnt_com = 0;

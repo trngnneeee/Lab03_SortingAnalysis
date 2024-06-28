@@ -6,5 +6,5 @@
 using namespace std;
 using namespace chrono;
 
-void bubbleSort(int *arr, int n, int &count_comparison);
+void bubbleSort(int *arr, int n, long long &count_comparison);
 double bubbleSortRuntime(int *arr, int n);

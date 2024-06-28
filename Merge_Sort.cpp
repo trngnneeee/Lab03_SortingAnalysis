@@ -1,6 +1,6 @@
 #include "Merge_Sort.h"
 
-void mergeComparision(int *arr, int first, int mid, int last, int &comparision)
+void mergeComparision(int *arr, int first, int mid, int last, long long &comparision)
 {
 
     int first1 = first, last1 = mid;
@@ -39,7 +39,7 @@ void mergeComparision(int *arr, int first, int mid, int last, int &comparision)
     delete[] tempArr;
 }
 
-void mergeSortComparision(int *arr, int first, int last, int &comparision)
+void mergeSortComparision(int *arr, int first, int last, long long &comparision)
 {
 
     if (++comparision && first < last)
@@ -50,7 +50,7 @@ void mergeSortComparision(int *arr, int first, int last, int &comparision)
         mergeComparision(arr, first, mid, last, comparision);
     }
 }
-void calComparisionMergeSort(int *arr, int n, int &comparision)
+void calComparisionMergeSort(int *arr, int n, long long &comparision)
 {
     comparision = 0;
     mergeSortComparision(arr, 0, n - 1, comparision);

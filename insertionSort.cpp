@@ -1,6 +1,6 @@
 #include "insertionSort.h"
 
-void insertionSort(int* a, int n, int &numCmp) {
+void insertionSort(int* a, int n, long long &numCmp) {
     numCmp = 0;
     for (int i = 1; ++numCmp && i < n; i++) {
         int key = a[i];

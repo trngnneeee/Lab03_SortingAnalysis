@@ -1,6 +1,6 @@
 #include "heapSort.h"
 
-void heapRebuildComparison(int start, int *arr, int n, int &count_comparison){
+void heapRebuildComparison(int start, int *arr, int n, long long &count_comparison){
     int left = 2 * start + 1;
     ++count_comparison;
     if(left >= n){
@@ -22,7 +22,7 @@ void heapRebuildComparison(int start, int *arr, int n, int &count_comparison){
     }
 }
 
-void heapSortComparison(int *arr, int n, int &count_comparison){
+void heapSortComparison(int *arr, int n, long long &count_comparison){
     count_comparison = 0;
     int index = n / 2 - 1;
     for (; ++count_comparison && index >= 0; index--)

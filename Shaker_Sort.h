@@ -9,7 +9,7 @@
 using namespace std;
 using namespace chrono;
 
-void shakerSortComparision(int *arr, int n, int &comparision);
+void shakerSortComparision(int *arr, int n, long long &comparision);
 
 void shakerSortTime(int *arr, int n);
 double calTimeShakerSort(int *arr, int n);

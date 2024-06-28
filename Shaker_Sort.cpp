@@ -1,6 +1,6 @@
 #include"Shaker_Sort.h"
 
-void shakerSortComparision(int *arr, int n, int &comparision){
+void shakerSortComparision(int *arr, int n, long long &comparision){
     int left = 1, right = n-1, k = n-1;
     comparision = 0;
     do {

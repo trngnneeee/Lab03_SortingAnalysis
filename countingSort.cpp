@@ -1,6 +1,6 @@
 #include "countingSort.h"
 #include "flashSort.h"
-void countingSort(int *arr, int n, int &numCmp){
+void countingSort(int* arr, int n, long long& numCmp) {
     numCmp = 0;
 
     int maxVal = maxElement1(arr, n, numCmp);
@@ -29,8 +29,8 @@ void countingSort(int *arr, int n, int &numCmp){
     delete[] count;
 }
 
-double countingSortRuntime(int *arr, int n){
-    auto start = high_resolution_clock::now();  
+double countingSortRuntime(int* arr, int n) {
+    auto start = high_resolution_clock::now();
     int maxVal = *max_element(arr, arr + n);
     int* count = new int[maxVal + 1]();
 
@@ -54,15 +54,15 @@ double countingSortRuntime(int *arr, int n){
     }
     delete[] count;
 
-    auto stop = high_resolution_clock::now(); 
+    auto stop = high_resolution_clock::now();
     auto duration = duration_cast<milliseconds>(stop - start);
     return (double)duration.count();
 }
 
-int maxElement1(int *arr, int n, int &count_comparison){
+int maxElement1(int* arr, int n, long long& count_comparison) {
     int max = arr[0];
-    for(int i = 1; ++count_comparison && i < n; i++){
-        if(arr[i] > max){
+    for (int i = 1; ++count_comparison && i < n; i++) {
+        if (arr[i] > max) {
             max = arr[i];
         }
     }

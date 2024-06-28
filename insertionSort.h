@@ -5,5 +5,5 @@
 using namespace std;
 using namespace chrono;
 
-void insertionSort(int* a, int n, int &numCmp);
+void insertionSort(int* a, int n, long long &numCmp);
 double insertionSortRuntime(int* a, int n);

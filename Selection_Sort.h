@@ -7,6 +7,6 @@
 using namespace std;
 using namespace chrono;
 
-void selecionSortComparision(int *arr, int n, int &comparision);
+void selecionSortComparision(int *arr, int n, long long &comparision);
 void selecionSortTime(int *arr, int n);
 double calTimeSelectionSort(int *arr, int n);
