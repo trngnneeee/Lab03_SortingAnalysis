@@ -6,10 +6,8 @@
 using namespace std;
 using namespace chrono;
 
-int partitionRunTime(int* arr, int low, int high);
-void quickSortRunTime(int* arr, int low, int high);
-double calQuickSortRunTime(int* arr, int n);
-
-int partition(int* arr, int low, int high, long long& numCmp);
-void quickSort(int* arr, int low, int high, long long& numCmp);
+void quickSort(int *arr, int first, int last, long long &comparision);
 void calQuickSort(int *arr, int n, long long &numCmp);
+
+void quickSortRunningTime(int *arr, int first, int last);
+double calQuickSortRunningTime(int *arr, int n);

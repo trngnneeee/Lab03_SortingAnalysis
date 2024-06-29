@@ -1,71 +1,59 @@
 #include "quickSort.h"
 
-int partitionRunTime(int* arr, int low, int high)
+void quickSort(int *arr, int first, int last, long long &comparision)
 {
-    int pivot = arr[high];
-    int i = (low - 1);
-
-    for (int j = low; j <= high - 1; j++)
+    int pivot = arr[(first + last) / 2];
+    int i = first, j = last;
+    do
     {
-        if (arr[j] < pivot)
-        {
+        while (++comparision && arr[i] < pivot)
             i++;
+        while (++comparision && arr[j] > pivot)
+            j--;
+        if (++comparision && i <= j)
+        {
             swap(arr[i], arr[j]);
+            i++;
+            j--;
         }
-    }
-    swap(arr[i + 1], arr[high]);
-    return (i + 1);
+    } while (++comparision && i <= j);
+    if (++comparision && first < j)
+        quickSort(arr, first, j, comparision);
+    if (++comparision && i < last)
+        quickSort(arr, i, last, comparision);
 }
-
-void quickSortRunTime(int* arr, int low, int high)
+void calQuickSort(int *arr, int n, long long &numCmp){
+    numCmp = 0;
+    quickSort(arr, 0, n - 1, numCmp);
+}
+void quickSortRunningTime(int *arr, int first, int last)
 {
-    if (low < high)
+    int pivot = arr[(first + last) / 2];
+    int i = first, j = last;
+    do
     {
-        int pi = partitionRunTime(arr, low, high);
-        quickSortRunTime(arr, low, pi - 1);
-        quickSortRunTime(arr, pi + 1, high);
-    }
+        while (arr[i] < pivot)
+            i++;
+        while (arr[j] > pivot)
+            j--;
+        if (i <= j)
+        {
+            swap(arr[i], arr[j]);
+            i++;
+            j--;
+        }
+    } while (i <= j);
+    if (first < j)
+        quickSortRunningTime(arr, first, j);
+    if (i < last)
+        quickSortRunningTime(arr, i, last);
 }
 
-double calQuickSortRunTime(int* arr, int n)
-{
+double calQuickSortRunningTime(int *arr, int n){
     auto start = high_resolution_clock::now();
+    quickSortRunningTime(arr, 0, n - 1);
 
-    quickSortRunTime(arr, 0, n - 1);
     auto stop = high_resolution_clock::now();
     auto duration = duration_cast<milliseconds>(stop - start);
     return (double)duration.count();
-}
-
-int partition(int* arr, int low, int high, long long& numCmp)
-{
-    int pivot = arr[high];
-    int i = (low - 1);
-
-    for (int j = low; ++numCmp && j <= high - 1; j++)
-    {
-        if (++numCmp && arr[j] < pivot)
-        {
-            i++;
-            swap(arr[i], arr[j]);
-        }
-    }
-    swap(arr[i + 1], arr[high]);
-    return (i + 1);
-}
-
-void quickSort(int* arr, int low, int high, long long& numCmp)
-{
-    if (low < high)
-    {
-        int pi = partition(arr, low, high, numCmp);
-        quickSort(arr, low, pi - 1, numCmp);
-        quickSort(arr, pi + 1, high, numCmp);
-    }
-}
-
-void calQuickSort(int* arr, int n, long long& numCmp)
-{
-    numCmp = 0;
-    quickSort(arr, 0, n - 1, numCmp);
 }

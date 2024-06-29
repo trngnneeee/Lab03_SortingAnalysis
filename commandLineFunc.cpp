@@ -99,13 +99,13 @@ void runSort(int *arr, int n, char *algorithm, char *mode){
     }
     else if(strcmp(algorithm, "quick-sort") == 0){
         if(strcmp(mode, "-time") == 0)
-            cout << "Running time: " << calQuickSortRunTime(arr, n) << endl;
+            cout << "Running time: " << calQuickSortRunningTime(arr, n) << endl;
         else if(strcmp(mode, "-comp") == 0){
             calQuickSort(arr, n, count_comparison);
             cout << "Comparisions: " << count_comparison << endl;
         }
         else if(strcmp(mode, "-both") == 0){
-            cout << "Running time: " << calQuickSortRunTime(arr, n) << endl;
+            cout << "Running time: " << calQuickSortRunningTime(arr, n) << endl;
             calQuickSort(arr, n, count_comparison);
             cout << "Comparisions: " << count_comparison << endl;
         }
@@ -229,7 +229,7 @@ double runSort2(int *arr, int n, char *algorithm, char *mode){
     }
     else if(strcmp(algorithm, "quick-sort") == 0){
         if(strcmp(mode, "-time") == 0)
-            return calQuickSortRunTime(arr, n);
+            return calQuickSortRunningTime(arr, n);
         else if(strcmp(mode, "-comp") == 0){
             calQuickSort(arr, n, count_comparison);
             return (double)count_comparison;
