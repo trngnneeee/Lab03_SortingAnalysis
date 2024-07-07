@@ -24,20 +24,13 @@ bool checkString(string &s);
 
 void readFile(string filename);
 
+void displayHelper(Trie *cur, string s);
+void display();
+
 int main()
 {
     readFile("Dic.txt");
-    int choice;
-    do
-    {
-        cin >> choice;
-        string s;
-        cin >> s;
-        if (checkString(s))
-            cout << "Yes\n";
-        else
-            cout << "No\n";
-    } while (choice != 0);
+    display();
 
     delete root;
     return 0;
@@ -90,4 +83,21 @@ void readFile(string filename)
     }
 
     fin.close();
+}
+
+void displayHelper(Trie* cur, string s)
+{
+    if(cur->isEnd)
+        cout << s << endl;
+
+    for (int i = 0; i < 26; i++)
+    {
+        if(cur->child[i])
+            displayHelper(cur->child[i], s + char(i + 'a'));
+    }
+}
+
+void display()
+{
+    displayHelper(root, "");
 }
