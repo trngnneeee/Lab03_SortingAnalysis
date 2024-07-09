@@ -61,7 +61,7 @@ void dfs(TrieNode *root, string s, bool *used, string &tmp, vector<string> &ans)
 {
     if (root->isEndOfWord)
     {
-        if (tmp.length() >= 3)
+        if (tmp.length() >= 3 && !exist(tmp, ans))
             ans.push_back(tmp);
     }
     for (int i = 0; i < s.length(); i += 2)
@@ -75,4 +75,13 @@ void dfs(TrieNode *root, string s, bool *used, string &tmp, vector<string> &ans)
             used[i] = 0;
         }
     }
+}
+
+bool exist(string s, vector<string> ans)
+{
+    for (int i = 0; i < ans.size(); i++)
+    {
+        if (s == ans[i]) return true;
+    }
+    return false;
 }

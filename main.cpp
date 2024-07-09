@@ -8,7 +8,6 @@ int main()
     string filename;
     cout << "Enter filename: ";
     getline(cin, filename); // E.g "Dic.txt"
-    cin.ignore(); // Ignore the newline character
 
     //Create the Trie from filename
     createTrie(filename, root);
