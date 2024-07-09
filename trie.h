@@ -20,9 +20,9 @@ struct TrieNode
     }
 };
 
-void insert(TrieNode *root, string key);
+void insert(TrieNode *&root, string key);
 bool search(TrieNode *root, string key);
-void createTrie(string fileName, TrieNode *root);
+void createTrie(string fileName, TrieNode *&root);
 void displayHelper(TrieNode *cur, string s);
 void dfs(TrieNode *root, string s, bool *used, string &tmp, vector<string> &ans);
 

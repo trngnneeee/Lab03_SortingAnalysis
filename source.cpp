@@ -1,6 +1,6 @@
 #include "trie.h"
 
-void insert(TrieNode *root, string key)
+void insert(TrieNode *&root, string key)
 {
     TrieNode *temp = root;
     for (int i = 0; i < key.length(); i++)
@@ -28,7 +28,7 @@ bool search(TrieNode *root, string key)
     return tmp->isEndOfWord = true;
 }
 
-void createTrie(string fileName, TrieNode *root)
+void createTrie(string fileName, TrieNode *&root)
 {
     ifstream input;
     input.open(fileName);
@@ -64,7 +64,7 @@ void dfs(TrieNode *root, string s, bool *used, string &tmp, vector<string> &ans)
         if (tmp.length() >= 3)
             ans.push_back(tmp);
     }
-    for (int i = 0; i < s.length(); i++)
+    for (int i = 0; i < s.length(); i += 2)
     {
         if (!used[i] && root->children[s[i] - 'a'])
         {
