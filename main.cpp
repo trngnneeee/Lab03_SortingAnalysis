@@ -16,6 +16,7 @@ int main()
     string s;
     cout << "Enter letters: ";
     getline(cin, s);
+    s = modify(s); // Modify string s into correct format
 
     //Create a boolean array to keep track of the letters that have been used    
     bool *used = new bool[s.length()]{0};

@@ -64,7 +64,7 @@ void dfs(TrieNode *root, string s, bool *used, string &tmp, vector<string> &ans)
         if (tmp.length() >= 3 && !exist(tmp, ans))
             ans.push_back(tmp);
     }
-    for (int i = 0; i < s.length(); i += 2)
+    for (int i = 0; i < s.length(); i ++)
     {
         if (!used[i] && root->children[s[i] - 'a'])
         {
@@ -81,7 +81,19 @@ bool exist(string s, vector<string> ans)
 {
     for (int i = 0; i < ans.size(); i++)
     {
-        if (s == ans[i]) return true;
+        if (s == ans[i])
+            return true;
     }
     return false;
+}
+
+string modify(string s)
+{
+    string ans = "";
+    for (int i = 0; i < s.length(); i++)
+    {
+        if (!isspace(s[i]))
+            ans.push_back(s[i]);
+    }
+    return ans;
 }

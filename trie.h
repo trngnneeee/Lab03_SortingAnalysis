@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <cctype>
 
 using namespace std;
 
@@ -26,3 +27,4 @@ void createTrie(string fileName, TrieNode *&root);
 void displayHelper(TrieNode *cur, string s);
 void dfs(TrieNode *root, string s, bool *used, string &tmp, vector<string> &ans);
 bool exist(string s, vector<string> ans);
+string modify(string s);
